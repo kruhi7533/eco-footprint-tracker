@@ -132,19 +132,10 @@ export function Settings() {
         return;
       }
 
-      if (!canRequestReset) {
-        toast.error(`Please wait ${resetCountdown} seconds before requesting another reset.`);
-        return;
-      }
+      // Mocked implementation
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
-      const { error } = await supabase.auth.resetPasswordForEmail(profile.email, {
-        redirectTo: `${window.location.origin}/reset-password`,
-      });
-
-      if (error) throw error;
-
-      startResetTimer();
-      toast.success("Password reset link sent to your email!");
+      toast.success("Password reset link sent to your email! (Mocked)");
       handleDialogClose();
     } catch (err: any) {
       console.error('Error sending reset password email:', err);
@@ -228,55 +219,8 @@ export function Settings() {
   };
 
   const handleDataDownload = async () => {
-    try {
-      // Fetch all user data
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) throw new Error('User not found');
-
-      // Fetch profile data
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', user.id)
-        .single();
-
-      // Fetch carbon entries
-      const { data: carbonEntries } = await supabase
-        .from('carbon_entries')
-        .select('*')
-        .eq('user_id', user.id);
-
-      // Fetch achievements
-      const { data: achievements } = await supabase
-        .from('achievements')
-        .select('*')
-        .eq('user_id', user.id);
-
-      // Combine all data
-      const userData = {
-        profile,
-        carbonEntries,
-        achievements,
-        exportDate: new Date().toISOString()
-      };
-
-      // Create and download file
-      const dataStr = JSON.stringify(userData, null, 2);
-      const dataBlob = new Blob([dataStr], { type: 'application/json' });
-      const url = window.URL.createObjectURL(dataBlob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `ecostep-data-${new Date().toISOString().split('T')[0]}.json`;
-      document.body.appendChild(link);
-      link.click();
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(link);
-
-      toast.success('Your data has been downloaded!');
-    } catch (err: any) {
-      console.error('Error downloading data:', err);
-      toast.error('Failed to download your data');
-    }
+    toast.info("Data download is currently disabled.");
+    // TODO: Implement API-based data download
   };
 
   const handleDeleteAccount = async () => {

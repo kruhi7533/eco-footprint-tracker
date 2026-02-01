@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { cn, getCurrentUTCDate } from "@/lib/utils";
 import { toast } from "sonner";
 import { calculateDietEmissions } from "@/lib/carbonUtils";
-import { addCarbonEntry } from "@/lib/supabase";
+import { addCarbonEntry } from "@/lib/api";
 import { useAuth } from "@/contexts/AuthContext";
 import { useQueryClient } from "@tanstack/react-query";
 

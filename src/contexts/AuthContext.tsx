@@ -1,7 +1,6 @@
 
 import { createContext, useState, useEffect, useContext, ReactNode } from 'react';
-import { Session, User } from '@supabase/supabase-js'; // We might want to remove this dependency later
-import { Profile } from '@/lib/supabase';
+import { Session, User, Profile } from '@/lib/types';
 import { api, getProfile } from '@/lib/api';
 import { toast } from 'sonner';
 
@@ -33,8 +32,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           try {
             const userData = await api.get('/auth/me');
             setUser(userData);
-            // Mock session for compatibility if needed, or adjust types
-            setSession({ user: userData } as any);
+
+            // Reconstruct session from token and user data
+            setSession({ user: userData, token });
 
             const userProfile = await getProfile();
             setProfile(userProfile);
@@ -58,13 +58,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const data = await api.post('/auth/login', { email, password });
       localStorage.setItem('token', data.token);
-      setSession({ user: data } as any); // Mocking session structure for compatibility or simplifying
-      setUser(data);
+      setSession({ user: data.user || data, token: data.token });
+      setUser(data.user || data);
       await refreshProfile();
       toast.success('Signed in successfully!');
     } catch (error: any) {
-      const message = JSON.parse(error.message).message;
-      toast.error(`Sign in failed: ${message}`);
+      const message = error.message || "Unknown error";
+      // Try parsing if it's a JSON string
+      let displayMessage = message;
+      try {
+        const parsed = JSON.parse(message);
+        if (parsed && parsed.message) displayMessage = parsed.message;
+      } catch (e) {
+        // not json
+      }
+      toast.error(`Sign in failed: ${displayMessage}`);
       throw error;
     }
   };
@@ -73,13 +81,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const data = await api.post('/auth/signup', { email, password, name });
       localStorage.setItem('token', data.token);
-      setSession({ user: data } as any);
-      setUser(data);
+      setSession({ user: data.user || data, token: data.token });
+      setUser(data.user || data);
       await refreshProfile();
       toast.success('Account created successfully!');
     } catch (error: any) {
-      const message = JSON.parse(error.message).message;
-      toast.error(`Sign up failed: ${message}`);
+      const message = error.message || "Unknown error";
+      let displayMessage = message;
+      try {
+        const parsed = JSON.parse(message);
+        if (parsed && parsed.message) displayMessage = parsed.message;
+      } catch (e) {
+        // not json
+      }
+      toast.error(`Sign up failed: ${displayMessage}`);
       throw error;
     }
   };

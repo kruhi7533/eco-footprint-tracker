@@ -1,4 +1,4 @@
-import { Profile, DailySummary, AchievementDefinition, UserAchievement, CarbonEntry } from './supabase';
+import { Profile, DailySummary, AchievementDefinition, UserAchievement, CarbonEntry } from './types';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
