@@ -1,6 +1,20 @@
 import { Profile, DailySummary, AchievementDefinition, UserAchievement, CarbonEntry } from './types';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
+const getBaseUrl = () => {
+    if (import.meta.env.VITE_API_URL) return import.meta.env.VITE_API_URL;
+    // If running in browser
+    if (typeof window !== 'undefined') {
+        const hostname = window.location.hostname;
+        // If on localhost/127.0.0.1, default to localhost:5000
+        // If on network IP (e.g. 192.168.x.x), use that IP:5000
+        return `http://${hostname}:5000/api`;
+    }
+    return 'http://localhost:5000/api';
+};
+
+const API_URL = getBaseUrl();
+
 
 // Helper to get headers with token
 const getHeaders = () => {
