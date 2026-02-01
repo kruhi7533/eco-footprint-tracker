@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8D6E63;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#8D6E63;stop-opacity:0.1"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <circle cx="200" cy="150" r="80" fill="#8D6E63" opacity="0.2" stroke="#6D4C41" stroke-width="4"/>
+  <path d="M160 140 L240 140 L240 200 L160 200 Z" fill="#6D4C41"/>
+  <path d="M170 130 S180 110 200 130 S220 110 230 130" fill="none" stroke="#6D4C41" stroke-width="4"/>
+  <path d="M180 160 L220 160 M180 180 L220 180" stroke="#D7CCC8" stroke-width="4"/>
+  <circle cx="190" cy="170" r="5" fill="#D7CCC8"/>
+  <circle cx="210" cy="170" r="5" fill="#D7CCC8"/>
+  <text x="200" y="260" font-family="Arial" font-size="32" text-anchor="middle" fill="#3E2723">Composting</text>
+  <text x="200" y="285" font-family="Arial" font-size="16" text-anchor="middle" fill="#3E2723">Organic Waste</text>
+</svg> 

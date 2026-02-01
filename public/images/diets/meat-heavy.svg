@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFEBEE;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#FFCDD2;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="meatGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E53935;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#C62828;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bg)"/>
+  
+  <!-- Main Circle -->
+  <circle cx="200" cy="150" r="80" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+  
+  <!-- Steak Icon -->
+  <path d="M160 130 
+           C 140 130, 140 170, 160 170
+           L 240 170
+           C 260 170, 260 130, 240 130
+           Z" 
+        fill="url(#meatGradient)"/>
+  
+  <!-- Grill Lines -->
+  <path d="M170 140 L230 140 M170 150 L230 150 M170 160 L230 160" 
+        stroke="#FFCDD2" 
+        stroke-width="3"
+        fill="none"/>
+  
+  <!-- Title -->
+  <text x="200" y="150" 
+        font-family="Arial" 
+        font-size="24" 
+        text-anchor="middle" 
+        fill="#B71C1C"
+        font-weight="bold">
+    Meat Heavy
+  </text>
+  
+  <!-- CO2 Impact -->
+  <text x="200" y="260" 
+        font-family="Arial" 
+        font-size="20" 
+        text-anchor="middle" 
+        fill="#C62828">
+    7.19 kg CO₂/day
+  </text>
+  
+  <!-- Description -->
+  <text x="200" y="285" 
+        font-family="Arial" 
+        font-size="14" 
+        text-anchor="middle" 
+        fill="#D32F2F">
+    High in animal products
+  </text>
+</svg> 

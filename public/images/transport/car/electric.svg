@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9800;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#FF9800;stop-opacity:0.1"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <rect x="50" y="100" width="300" height="100" rx="20" fill="#FF9800" opacity="0.9"/>
+  <circle cx="120" cy="220" r="30" fill="#333"/>
+  <circle cx="280" cy="220" r="30" fill="#333"/>
+  <text x="200" y="160" font-family="Arial" font-size="32" text-anchor="middle" fill="white">Electric Car</text>
+  <text x="200" y="190" font-family="Arial" font-size="16" text-anchor="middle" fill="white">Zero Emission Vehicle</text>
+</svg> 

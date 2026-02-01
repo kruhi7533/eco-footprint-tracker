@@ -1,0 +1,7 @@
+This directory contains meal type images:
+- breakfast.jpg
+- lunch.jpg
+- dinner.jpg
+- snack.jpg
+
+Please add appropriate images for each meal type. 

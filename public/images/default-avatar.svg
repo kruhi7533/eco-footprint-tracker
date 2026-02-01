@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="#E2E8F0"/>
+  <!-- User icon -->
+  <path d="M256 128C229.49 128 208 149.49 208 176C208 202.51 229.49 224 256 224C282.51 224 304 202.51 304 176C304 149.49 282.51 128 256 128ZM256 288C208 288 112 312.13 112 360V384H400V360C400 312.13 304 288 256 288Z" fill="#94A3B8"/>
+</svg> 

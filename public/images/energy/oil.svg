@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F3E5F5;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#E1BEE7;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="barrelGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9C27B0;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#7B1FA2;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bg)"/>
+  
+  <!-- Main Circle -->
+  <circle cx="200" cy="150" r="80" fill="#F3E5F5" stroke="#9C27B0" stroke-width="2"/>
+  
+  <!-- Oil Barrel -->
+  <path d="M160 110 
+           L 240 110 
+           L 250 130 
+           L 250 190 
+           L 240 210 
+           L 160 210 
+           L 150 190 
+           L 150 130 Z" 
+        fill="url(#barrelGradient)"/>
+  
+  <!-- Barrel Top -->
+  <ellipse cx="200" cy="110" rx="40" ry="10" fill="#7B1FA2"/>
+  
+  <!-- Title -->
+  <text x="200" y="150" 
+        font-family="Arial" 
+        font-size="24" 
+        text-anchor="middle" 
+        fill="#4A148C"
+        font-weight="bold">
+    Heating Oil
+  </text>
+  
+  <!-- Usage Type -->
+  <text x="200" y="260" 
+        font-family="Arial" 
+        font-size="20" 
+        text-anchor="middle" 
+        fill="#4A148C">
+    Oil Usage
+  </text>
+  
+  <!-- Description -->
+  <text x="200" y="285" 
+        font-family="Arial" 
+        font-size="14" 
+        text-anchor="middle" 
+        fill="#6A1B9A">
+    Oil Consumption
+  </text>
+</svg> 
