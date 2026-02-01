@@ -2,20 +2,21 @@ import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Header } from '@/components/landing/Header';
 import { Footer } from '@/components/landing/Footer';
+import { ChevronDown } from 'lucide-react';
 
 export default function Landing() {
   const { scrollY } = useScroll();
 
   // Transform values for the main logo with smoother transitions
-  const mainLogoScale = useTransform(scrollY, 
+  const mainLogoScale = useTransform(scrollY,
     [0, window.innerHeight], // Full viewport height for transition
     [1, 0.18], // Scale down to navbar size
     { clamp: true }
   );
-  
+
   // Keep logo centered until second section appears
   const mainLogoY = useTransform(scrollY,
-    [0, window.innerHeight], 
+    [0, window.innerHeight],
     [window.innerHeight * 0.4, 5], // Add slight padding at the top
     { clamp: true }
   );
@@ -50,7 +51,7 @@ export default function Landing() {
       {/* First Section - Full screen */}
       <div className="relative h-screen">
         {/* Background Image */}
-        <div 
+        <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: 'url("https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2913&auto=format&fit=crop")',
@@ -62,7 +63,10 @@ export default function Landing() {
         <div className="absolute bottom-0 left-0 right-0 z-20">
           <div className="container mx-auto px-4 py-8 flex justify-between items-center text-white/80">
             <span className="text-sm tracking-wider"></span>
-            <span className="text-sm tracking-wider">TRACK YOUR IMPACT</span>
+            <div className="flex items-center gap-2 animate-bounce text-white/80">
+              <span className="text-sm tracking-wider">SCROLL TO EXPLORE</span>
+              <ChevronDown className="w-4 h-4" />
+            </div>
           </div>
           <div className="w-full h-[1px] bg-white/20" />
         </div>
@@ -75,7 +79,7 @@ export default function Landing() {
           <div className="w-full h-[1px] bg-white/20" />
           <nav className="container mx-auto px-4">
             <div className="flex items-center justify-between py-5">
-              <motion.div 
+              <motion.div
                 className="flex items-center space-x-8"
                 style={{ opacity: navOpacity }}
               >
@@ -92,7 +96,7 @@ export default function Landing() {
               <div className="invisible">
                 <span className="text-lg font-light tracking-wider text-white">EcoStep</span>
               </div>
-              <motion.div 
+              <motion.div
                 className="flex items-center space-x-8"
                 style={{ opacity: navOpacity }}
               >
@@ -107,14 +111,14 @@ export default function Landing() {
           </nav>
           <div className="w-full h-[1px] bg-white/20" />
         </div>
-        
+
         {/* Content Sections */}
         <div className="pt-32">
           {/* Articles Section */}
           <section id="articles" className="py-32">
             <div className="container mx-auto px-4">
               <div className="max-w-6xl mx-auto">
-                <motion.h2 
+                <motion.h2
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
@@ -123,7 +127,7 @@ export default function Landing() {
                   Latest Articles
                 </motion.h2>
                 <div className="grid md:grid-cols-3 gap-12">
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
@@ -131,8 +135,8 @@ export default function Landing() {
                   >
                     <a href="https://www.treehugger.com/sustainable-living-4862329" className="block">
                       <div className="aspect-[4/5] bg-gray-800 rounded-lg overflow-hidden mb-6">
-                        <img 
-                          src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09" 
+                        <img
+                          src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09"
                           alt="Sustainable Living"
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
@@ -141,7 +145,7 @@ export default function Landing() {
                       <p className="text-gray-400">Discover practical tips for reducing your carbon footprint.</p>
                     </a>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
@@ -149,8 +153,8 @@ export default function Landing() {
                   >
                     <a href="https://www.ecowatch.com/environmental-impact-guide" className="block">
                       <div className="aspect-[4/5] bg-gray-800 rounded-lg overflow-hidden mb-6">
-                        <img 
-                          src="https://images.unsplash.com/photo-1470115636492-6d2b56f9146d" 
+                        <img
+                          src="https://images.unsplash.com/photo-1470115636492-6d2b56f9146d"
                           alt="Environmental Impact"
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
@@ -159,7 +163,7 @@ export default function Landing() {
                       <p className="text-gray-400">Understanding your daily choices and their effects.</p>
                     </a>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
@@ -167,8 +171,8 @@ export default function Landing() {
                   >
                     <a href="https://eartheasy.com/blog/2024/03/green-technology-innovations" className="block">
                       <div className="aspect-[4/5] bg-gray-800 rounded-lg overflow-hidden mb-6">
-                        <img 
-                          src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e" 
+                        <img
+                          src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e"
                           alt="Green Technology"
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
@@ -196,12 +200,12 @@ export default function Landing() {
                     <h2 className="text-7xl font-light mb-8 text-white">About Us</h2>
                     <div className="prose prose-lg text-gray-300">
                       <p className="text-xl leading-relaxed">
-                        We are dedicated to making environmental sustainability accessible and measurable. 
-                        Our platform helps individuals and organizations track and reduce their carbon footprint 
+                        We are dedicated to making environmental sustainability accessible and measurable.
+                        Our platform helps individuals and organizations track and reduce their carbon footprint
                         through innovative solutions and data-driven insights.
                       </p>
                       <p className="text-xl leading-relaxed mt-6">
-                        Join us in our journey towards a more sustainable future, where every small action 
+                        Join us in our journey towards a more sustainable future, where every small action
                         contributes to significant environmental impact.
                       </p>
                     </div>
@@ -213,8 +217,8 @@ export default function Landing() {
                     className="relative"
                   >
                     <div className="aspect-square rounded-lg overflow-hidden">
-                      <img 
-                        src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e" 
+                      <img
+                        src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e"
                         alt="About EcoStep"
                         className="w-full h-full object-cover"
                       />
@@ -229,7 +233,7 @@ export default function Landing() {
           <section id="mission" className="py-32">
             <div className="container mx-auto px-4">
               <div className="max-w-6xl mx-auto">
-                <motion.h2 
+                <motion.h2
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
